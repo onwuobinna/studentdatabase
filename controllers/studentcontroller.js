@@ -5,7 +5,7 @@ const Student = mongoose.model("Student")
 
 router.get('/', (req, res) => {
     res.render("student/addOrEdit", {
-        viewTitle: 'Insert  Student'
+        viewTitle: 'Insert  Student Record'
     });
 });
 
@@ -57,7 +57,7 @@ router.get("/:id",(req, res) => {
     Student.findById(req.params.id, (err, doc) => {
         if(!err) {
             res.render("student/addOredit",{
-                viewTitle: 'Update Student',
+                viewTitle: 'Update Student Record',
                 student: doc
             });
             console.log(doc);

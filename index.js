@@ -13,6 +13,7 @@ const studentcontroller = require("./controllers/studentcontroller");
 
 var app = express();
 
+//bodyparser middleware
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
 
@@ -24,7 +25,7 @@ app.get('/', (req, res) =>{
     `);
 });
 
-app.set('views',path.join(__dirname, '/views/'));
+app.set('views',path.join(__dirname, '/views/')); 
 app.engine('hbs', engine({
     handlebars: allowInsecurePrototypeAccess(handlebars),
     extname: 'hbs',
@@ -38,5 +39,7 @@ app.listen(3000, () =>{
     console.log('server started at port 3000');
 });
 
+
+//route or controller middleware
 app.use("/student", studentcontroller); 
 
